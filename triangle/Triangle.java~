@@ -1,0 +1,83 @@
+
+public class Triangle {
+    /** side1 double type, first side */
+    private double side1;
+    /** side2 double type, second side */
+    private double side2;
+    /** side3 double type, last side */
+    private double side3;
+    
+    /** constructor */
+    public Triangle() {
+        this.side1 = 3;
+        this.side2 = 4;
+        this.side3 = 5;
+    }
+    public Triangle(double side1, double side2, double side3) {
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
+    }
+    
+    /** methods */
+    public boolean isValidTriangle() {
+        Triangle t = new Triangle();
+        double suma1 = t.getSide1() + t.getSide2();
+        double suma2 = t.getSide2() + t.getSide3();
+        double suma3 = t.getSide1() + t.getSide3();
+        boolean isValidTriangle = false;
+        
+        if (suma1 > t.getSide3() && suma2 > t.getSide1() && suma3 > t.getSide2()) isValidTriangle = true;
+        
+        return isValidTriangle;
+    }
+    
+    public double perimeter() {
+        Triangle t = new Triangle();
+        double perimetro;
+        if (t.isValidTriangle() == true) {
+            perimetro = t.getSide1() + t.getSide2() + t.getSide3();
+        } else {
+            perimetro = -1;
+        }
+        return perimetro;
+    }
+    public double area() {
+        Triangle t = new Triangle();
+        double area;
+        
+        if (t.isValidTriangle() == true) {
+            double s = t.perimeter();
+            area = Math.sqrt(s*(s - t.getSide1() * (s - t.getSide2()) * (s - t.getSide3())));
+        } else {
+            area = -1;
+        }
+        
+        return area;
+    }
+    
+    /** setters and getters */
+    public void setSide1(double side1) {
+        this.side1 = side1;
+    }
+    public double getSide1() {
+        return side1;
+    }
+    public void setSide2(double side2) {
+        this.side2 = side2;
+    }
+    public double getSide2() {
+        return side2;
+    }
+    public void setSide3(double side3) {
+        this.side3 = side3;
+    }
+    public double getSide3() {
+        return side3;
+    }
+    
+    /** toString */
+    public String toString() {
+        return null;
+    }
+}
